@@ -19,7 +19,6 @@ To run ERP system
 •	Navigate to index.php page
 4.	Login
 •	Give email:     admin@gmail.com
-
 •	Password:      admin
 <img width="960" alt="login" src="https://github.com/stephanfdo/E-Mart-ERP/assets/71144352/cc69fdc1-0a0c-4164-83dd-0d99663a3dc8">
 
