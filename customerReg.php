@@ -62,7 +62,7 @@ if ($conn->query($sql) === TRUE) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Profile - Brand</title>
+    <title>E-Mart</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -75,6 +75,37 @@ if ($conn->query($sql) === TRUE) {
     <link rel="stylesheet" href="assets/css/Header-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
+
+    <script type="text/javascript">
+
+function validateForm() {
+    // Get form elements
+    var title = document.formcustomer.username.value;
+    var firstName = document.formcustomer.first_name.value;
+    var middleName = document.formcustomer.middle_name.value;
+    var lastName = document.formcustomer.last_name.value;
+    var contactNumber = document.formcustomer.contact_no.value;
+    var district = document.formcustomer.district.value;
+  
+    // Check if required fields are not empty
+    if (title =='' || firstName =='' || lastName == '' || contactNumber == '' || district =='') {
+      alert('Please fill in all the required fields.');
+    return false;
+    }
+  
+    // Additional validation for contact number (you can modify this as needed)
+    var contactRegex = /^\d{10}$/;
+    if (!contactRegex.test(contactNumber)) {
+      alert('Please enter a valid 10-digit contact number.');
+      return false;
+
+    }
+  
+  }
+    </script>
+
+
+
 </head>
 
 <body id="page-top">
@@ -89,9 +120,9 @@ if ($conn->query($sql) === TRUE) {
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link active" href="customerReg.php"><i class="fas fa-user"></i><span>Customer Registration</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="itemRegistration.php"><i class="fas fa-table"></i><span>Item Registration</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="invoiceReport.php"><i class="far fa-user-circle"></i><span>Invoice Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-user-circle"></i><span>Invoice Item Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-key"></i><span>Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoiceReport.php"><i class="fas fa-table"></i><span>Invoice Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-table"></i><span>Invoice Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-table"></i><span>Item Report</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                 </ul>
@@ -176,10 +207,10 @@ if ($conn->query($sql) === TRUE) {
                                             <p class="text-primary m-0 fw-bold">Customer Details</p>
                                         </div>
                                         <div class="card-body">
-                                            <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
+                                            <form name="formcustomer"   method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="Title"><strong>Title</strong></label><select class="form-control" type="text" id="username" placeholder="Title" name="username">
+                                                        <div class="mb-3"><label class="form-label" for="Title"><strong>Title</strong></label><select  class="form-control" type="text" required id="username" placeholder="Title" name="username" required>
                                                             <option value="0">Select title:</option>
                                                             <option value="Mr">Mr</option>
                                                             <option value="Mrs">Mrs</option>
@@ -188,23 +219,23 @@ if ($conn->query($sql) === TRUE) {
                                                         </select></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="First Name"><strong>First Nmae</strong></label><input class="form-control" type="text" id="email" placeholder="First Name" name="first_name"></div>
+                                                        <div class="mb-3"><label class="form-label" for="First Name"><strong>First Nmae</strong></label><input  class="form-control" type="text" id="email" placeholder="First Name" name="first_name" required></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="Middle Name"><strong>Middle Name</strong></label><input class="form-control" type="text" id="middle_name" placeholder="Middle Name" name="middle_name"></div>
+                                                        <div class="mb-3"><label class="form-label" for="Middle Name"><strong>Middle Name</strong></label><input class="form-control" type="text" id="middle_name" placeholder="Middle Name" name="middle_name" required></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" placeholder="last Name" name="last_name"></div>
+                                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" placeholder="last Name" name="last_name" required></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="contact number"><strong>Contact Number</strong></label><input class="form-control" type="text" id="username" placeholder="contact number" name="contact_no"></div>
+                                                        <div class="mb-3"><label class="form-label" for="contact number"><strong>Contact Number</strong></label><input class="form-control" type="text" id="username" placeholder="contact number" name="contact_no" required></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="district"><strong>District</sttrong></label><select class="form-control" type="text" id="email" placeholder="district" name="district">
+                                                        <div class="mb-3"><label class="form-label" for="district"><strong>District</sttrong></label><select class="form-control" type="text" required id="email" placeholder="district" name="district" required>
                                                             <option value="0">Select District:</option>
                                                             <option value="1">Ampara</option>
                                                             <option value="2">Anuradhapura</option>
@@ -234,7 +265,7 @@ if ($conn->query($sql) === TRUE) {
                                                         </select></div>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Submit</button></div>
+                                                <div class="mb-3"><button  class="btn btn-primary btn-sm" type="submit" onclick="validateForm()" >Submit</button></div>
                                             </form>
                                         </div>
                                     </div>
@@ -257,6 +288,7 @@ if ($conn->query($sql) === TRUE) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/Lightbox-Gallery.js"></script>
     <script src="assets/js/theme.js"></script>
+ 
 </body>
 
 </html>

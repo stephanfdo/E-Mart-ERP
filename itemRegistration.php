@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>E-MART</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -63,6 +63,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="assets/css/Header-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
+
+
+    <script type="text/javascript">
+
+function validateForm() {
+    // Get form elements
+    var title = document.formcustomer.item_code.value;
+    var firstName = document.formcustomer.item_name.value;
+    var middleName = document.formcustomer.item_category.value;
+    var lastName = document.formcustomer.item_subcategory.value;
+    var contactNumber = document.formcustomer.quantity.value;
+    var district = document.formcustomer.unitprice.value;
+  
+    // Check if required fields are not empty
+    if (title =='' || firstName =='' || lastName == '' || contactNumber == '' || district =='') {
+      alert('Please fill in all the required fields.');
+    return false;
+    }
+  
+    // Additional validation for contact number (you can modify this as needed)
+  
+  }
+    </script>
 </head>
 
 <body id="page-top">
@@ -78,9 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
                     <li class="nav-item"><a class="nav-link" href="customerReg.php"><i class="fas fa-user"></i><span>Customer Registration</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="itemRegistration.php"><i class="fas fa-table"></i><span>Item Registration</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="invoiceReport.php"><i class="far fa-user-circle"></i><span>Invoice Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-user-circle"></i><span>Invoice Item Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-key"></i><span>Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoiceReport.php"><i class="fas fa-table"></i><span>Invoice Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-table"></i><span>Invoice Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-table"></i><span>Item Report</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                 </ul>
@@ -166,18 +189,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                             <p class="text-primary m-0 fw-bold">Item Details</p>
                                         </div>
                                         <div class="card-body">
-                                            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
+                                            <form name="formcustomer" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="Item Code"><strong>Item Code</strong></label><input class="form-control" type="text" id="code" placeholder="Item code" name="item_code"></div>
+                                                        <div class="mb-3"><label class="form-label" for="Item Code"><strong>Item Code</strong></label><input class="form-control" type="text" id="code" placeholder="Item code" name="item_code" required></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="Item Name"><strong>Item Nmae</strong></label><input class="form-control" type="text" id="name" placeholder="Item Name" name="item_name"></div>
+                                                        <div class="mb-3"><label class="form-label" for="Item Name"><strong>Item Nmae</strong></label><input class="form-control" type="text" id="name" placeholder="Item Name" name="item_name" required></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                         <div class="mb-3"><label class="form-label" for="Title"><strong>Item Category</strong></label><select class="form-control" type="text" id="category" placeholder="Item category" name="item_category">
+                                                         <div class="mb-3"><label class="form-label" for="Title"><strong>Item Category</strong></label><select class="form-control" type="text" id="category" placeholder="Item category" name="item_category" required>
                                                             <option value="0">Select category:</option>
                                                             <option value="1">Printers</option>
                                                             <option value="2">Laptops</option>
@@ -187,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                         </select></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="Title"><strong>Item Sub Category</strong></label><select class="form-control" type="text" id="subcategory" placeholder="Item sub category" name="item_subcategory">
+                                                        <div class="mb-3"><label class="form-label" for="Title"><strong>Item Sub Category</strong></label><select class="form-control" type="text" id="subcategory" placeholder="Item sub category" name="item_subcategory" required>
                                                             <option value="0">select sub category:</option>
                                                             <option value="1">HP</option>
                                                             <option value="2">Dell</option>
@@ -199,10 +222,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="quantity"><strong>Quantity</strong></label><input class="form-control" type="text" id="quantity" placeholder="quantity" name="quantity"></div>
+                                                        <div class="mb-3"><label class="form-label" for="quantity"><strong>Quantity</strong></label><input class="form-control" type="text" id="quantity" placeholder="quantity" name="quantity"  required></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="price"><strong>Unit Price</strong></label><input class="form-control" type="text" id="price" placeholder="Unit Price" name="unit_price"></div>
+                                                        <div class="mb-3"><label class="form-label" for="price"><strong>Unit Price</strong></label><input class="form-control" type="text" id="price" placeholder="Unit Price" name="unit_price" required></div>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Submit</button></div>

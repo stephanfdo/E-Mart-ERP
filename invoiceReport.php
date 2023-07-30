@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>E-MART</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link " href="customerReg.php"><i class="fas fa-user"></i><span>Customer Registration</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="itemRegistration.php"><i class="fas fa-table"></i><span>Item Registration</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="invoiceReport.php"><i class="far fa-user-circle"></i><span>Invoice Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-user-circle"></i><span>Invoice Item Report</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-key"></i><span>Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="invoiceReport.php"><i class="fas fa-table"></i><span>Invoice Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoiceItemReport.php"><i class="fas fa-table"></i><span>Invoice Item Report</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="itemReport.php"><i class="fas fa-table"></i><span>Item Report</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                 </ul>
