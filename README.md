@@ -19,12 +19,13 @@ To run ERP system
 •	Navigate to index.php page
 4.	Login
 •	Give email:     admin@gmail.com
+
 •	Password:      admin
 <img width="960" alt="login" src="https://github.com/stephanfdo/E-Mart-ERP/assets/71144352/cc69fdc1-0a0c-4164-83dd-0d99663a3dc8">
 
 
 
-5.	Dashboard
+6.	Dashboard
 •	Navigate to dashboard by login and user can see the functions  for
 Customer registration, Item registration, Item report, invoice report and invoice item report
 <img width="960" alt="cs1" src="https://github.com/stephanfdo/E-Mart-ERP/assets/71144352/6cd2262a-7b81-4376-809a-467e109bf2a5">
